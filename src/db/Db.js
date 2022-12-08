@@ -8,6 +8,10 @@ class Db {
     #database
     #port
 
+    constructor() {
+
+    }
+
     getConnection() {
         return mysql.createPool({
             host: config.host,
