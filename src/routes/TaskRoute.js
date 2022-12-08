@@ -13,6 +13,16 @@ taskRouter.get(('/'), async (req, res) => {
     }
 });
 
+taskRouter.delete(('/:id'), async (req, res) => {
+    try {
+        const { id } = req.params;
+        res.status(200).json(await task.deleteTask(id))
+    } catch (error) {
+        res.status(400)
+        throw (error)
+    }
+});
+
 module.exports = {
     taskRouter
 }
