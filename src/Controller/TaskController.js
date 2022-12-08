@@ -44,6 +44,20 @@ class TaskController {
             connection.end();
         }
     }
+
+    async addCompleted(req, res) {
+        const connection = await db.getConnection();
+        try {
+            const { id, completed } = req.body;
+            const result = await connection.query(`UPDATE Task SET completeded=${completed} WHERE id=${id}`);
+            res.status(200).json(result);
+        } catch (error) {
+            res.status(400);
+            console.log(error);
+        } finally {
+            connection.end();
+        }
+    }
 }
 
 module.exports = {
