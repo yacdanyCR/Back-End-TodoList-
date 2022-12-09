@@ -18,7 +18,6 @@ class Db {
             user: config.user,
             password: config.password,
             database: config.database,
-            port: config.port
         });
     }
 }
