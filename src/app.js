@@ -10,5 +10,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use(('/api/task'), taskRouter);
+app.get('/', (req, res) => {
+    res.send('Welcome to my API');
+});
 
 app.listen(port);
